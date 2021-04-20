@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: #ac0909;
+    overflow: hidden;
+    font-family: roboto, sans-serif;
+}
+
+.line{
+    position: absolute;
+    height: 2px;
+    width: 0%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transform-origin: top;
+    background: #ac0909;
+    animation: grow 1s forwards 1;
+}
+
+.line.second{
+    transform: translate(-50%, -50%) rotate(-45deg);
+    animation-delay: .5s;
+}
+
+@keyframes grow{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 150%;
+    }
+}
+
+@keyframes rotate-back{
+    0%{
+        width: 150%;
+    }
+    100%{
+        width: 150%;
+        transform: translate(-50%, -50%) rotate(0);
+    }
+}
+
+@keyframes slide-left{
+    0%{
+        left: 50%;
+        width: 150%;
+        transform: translate(-50%, -50%) rotate(0);
+    }
+    100%{
+        left: 200%;
+        width: 150%;
+        transform: translate(-50%, -50%) rotate(0);
+    }
+}
+
+.logo{
+    text-transform: uppercase;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100px;
+    font-size: 100px;
+    font-weight: bold;
+    line-height: 100;
+    overflow: hidden;
+    animation: show 1.2s forwards 1;
+}
+
+@keyframes show{
+    0%{
+        line-height: 100;
+    }
+    100%{
+        line-height: 1;
+    }
+}
+
+@keyframes logo-placement{
+    0%{
+        top: 50%;
+        left: 50%;
+        font-size: 100px;
+        height: 100px;
+        line-height: 1;
+    }
+    100%{
+        top: 5vh;
+        left: 12vw;
+        height: 30px;
+        font-size: 30px;
+        line-height: 1;
+    }
+}
+
+.shutter{
+    position: absolute;
+    width: 100%;
+    height: 50vh;
+    background: #1b1b1b;
+    z-index: -2;
+}
+
+.shutter.top{
+    top: 0;
+    animation: slide-up 2s 4.5s forwards 1;
+}
+
+.shutter.bottom{
+    bottom: 0;
+    animation: slide-down 2s 4.5s forwards 1;
+}
+
+@keyframes slide-up{
+    0%{
+        top: 0;
+    }
+    100%{
+        top: -100%;
+    }
+}
+
+@keyframes slide-down{
+    0%{
+        bottom: 0;
+    }
+    100%{
+        bottom: -100%;
+    }
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    padding-left: 8vw;
+}
+
+.bike{
+    position: absolute;
+    left: 150%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    animation: bike-in .5s forwards 1;
+    height: 500px;
+    z-index: -1;
+}
+
+@keyframes bike-in{
+    0%{
+        left: 150%;
+    }
+    100%{
+        left: 90%;
+    }
+}
+
+@keyframes bike-out{
+    0%{
+        left: 90%;
+    }
+    100%{
+        left: 150%;
+    }
+}
+
+.heading{
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 120px;
+    line-height: 120px;
+    opacity: 0;
+    animation: fade-up .5s forwards 1;
+}
+
+.heading span{
+    font-size: 150px;
+    padding-left: 10px;
+}
+
+.para{
+    min-width: 400px;
+    width: 60%;
+    color: #fff;
+    margin: 30px 0 50px;
+    opacity: 0;
+    animation: fade-up .5s forwards 1;
+}
+
+.btn{
+    width: 150px;
+    height: 30px;
+    border: none;
+    border-radius: 50px;
+    background: #fff;
+    color: #ac0909;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: .5s;
+    opacity: 0;
+    animation: fade-up .5s forwards 1;
+}
+
+.btn:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 10px 10px rgba(0 ,0 ,0 , 0.2);
+}
+
+@keyframes fade-up{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.colors{
+    width: 100px;
+    height: 40px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    animation: fade-up .5s forwards 1;
+}
+
+.colors div{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 8px solid #dadada;
+    box-sizing: border-box;
+    box-shadow: inset 4px 4px 18px #000;
+    cursor: pointer;
+}
+
+.colors .white{
+    background: white;
+}
+
+.colors .red{
+    background: #ac0909;
+}
